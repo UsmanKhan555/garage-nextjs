@@ -4,28 +4,20 @@ import './globals.css'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import WhatsAppButton from '@/components/whatsapp-button'
+import { SITE } from '@/lib/config'
 
 const geist = Geist({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Elite Garage Dubai | Heavy Vehicle Repair & Truck Services',
-    template: '%s | Elite Garage Dubai',
+    default: SITE.seo.title,
+    template: SITE.seo.titleTemplate,
   },
-  description:
-    'Professional truck repair and suspension services in Dubai. Expert mechanics for suspension repair, leaf spring replacement, brake inspection, and heavy vehicle maintenance.',
-  keywords: [
-    'truck repair Dubai',
-    'suspension repair Dubai',
-    'leaf spring repair Dubai',
-    'heavy vehicle maintenance Dubai',
-    'brake inspection Dubai',
-    'garage Dubai',
-  ],
+  description: SITE.seo.description,
+  keywords: SITE.seo.keywords,
   openGraph: {
-    title: 'Elite Garage Dubai | Heavy Vehicle Repair & Truck Services',
-    description:
-      'Professional truck repair and suspension services in Dubai. Expert mechanics, genuine parts, honest pricing.',
+    title: SITE.seo.title,
+    description: SITE.seo.description,
     type: 'website',
     locale: 'en_AE',
   },

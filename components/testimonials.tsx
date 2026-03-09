@@ -1,35 +1,4 @@
-const TESTIMONIALS = [
-  {
-    name: 'Ahmed Transport LLC',
-    role: 'Fleet Manager',
-    body: 'Very reliable garage. Fixed our truck suspension quickly and at a fair price. Our fleet is back on the road with zero issues.',
-  },
-  {
-    name: 'Khalid Logistics',
-    role: 'Operations Director',
-    body: 'Professional mechanics and fast service. They diagnosed the leaf spring problem within an hour and had it repaired the same day.',
-  },
-  {
-    name: 'Sultan Al Mansoori',
-    role: 'Private Vehicle Owner',
-    body: 'Honest pricing, no hidden fees. They explained everything before starting the work. Will not take my truck anywhere else.',
-  },
-  {
-    name: 'Dubai Heavy Haulage',
-    role: 'Head of Maintenance',
-    body: 'We send all our heavy vehicles here for brake inspections. Consistent quality every time. Highly recommended for fleet owners.',
-  },
-  {
-    name: 'Rashid Al Falasi',
-    role: 'Truck Owner',
-    body: 'Came in with a bad suspension noise, left with a perfectly smooth ride. Quick, professional, and respectful of my time.',
-  },
-  {
-    name: 'Gulf Star Transport',
-    role: 'Transport Manager',
-    body: 'Best garage we have worked with in Dubai. They understand heavy vehicles and don\'t cut corners. Solid team.',
-  },
-]
+import { SITE } from '@/lib/config'
 
 export default function Testimonials() {
   return (
@@ -48,7 +17,7 @@ export default function Testimonials() {
 
         {/* Grid */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {TESTIMONIALS.map((t) => (
+          {SITE.testimonials.map((t) => (
             <div
               key={t.name}
               className="flex flex-col rounded-xl border border-neutral-100 bg-neutral-50 p-7"

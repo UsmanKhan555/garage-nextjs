@@ -1,9 +1,5 @@
 import Image from 'next/image'
-
-// ── Update with your real numbers ──────────────────────────────────────────
-const PHONE = '+1234567890'
-const WHATSAPP = '1234567890' // no + sign
-// ───────────────────────────────────────────────────────────────────────────
+import { SITE } from '@/lib/config'
 
 export default function Hero() {
   return (
@@ -11,8 +7,8 @@ export default function Hero() {
 
       {/* Background image */}
       <Image
-        src="/images/pexels-cottonbro-4480466.jpg"
-        alt="Elite Garage workshop"
+        src={SITE.images.heroBg}
+        alt={`${SITE.name} workshop`}
         fill
         priority
         className="object-cover"
@@ -29,7 +25,7 @@ export default function Hero() {
         <div className="mb-6 flex items-center gap-2">
           <span className="h-px w-8 bg-white/40" />
           <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
-            Dubai, UAE
+            {SITE.location}
           </span>
         </div>
 
@@ -38,31 +34,36 @@ export default function Hero() {
           className="mb-6 max-w-4xl font-black uppercase leading-[0.9] tracking-tight text-white"
           style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)' }}
         >
-          Professional
-          <br />
-          Heavy Vehicle
-          <br />
-          <span className="text-white/40">Repair</span>
+          {SITE.hero.headlineLines.map((line, i) => (
+            <span key={i}>
+              {line}
+              <br />
+            </span>
+          ))}
+          <span className="text-white/40">{SITE.hero.headlineAccent}</span>
         </h1>
+
+        {/* Subtext */}
+        <p className="mb-8 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
+          {SITE.hero.subtext}
+        </p>
 
         {/* Service pills */}
         <div className="mb-10 flex flex-wrap items-center gap-x-4 gap-y-2">
-          {['Suspension', 'Leaf Springs', 'Truck Service', 'Brake Inspection'].map(
-            (service, i) => (
-              <span key={service} className="flex items-center gap-4">
-                <span className="text-sm font-medium text-white/70 md:text-base">
-                  {service}
-                </span>
-                {i < 3 && <span className="text-white/20">•</span>}
+          {SITE.servicePills.map((service, i) => (
+            <span key={service} className="flex items-center gap-4">
+              <span className="text-sm font-medium text-white/70 md:text-base">
+                {service}
               </span>
-            )
-          )}
+              {i < SITE.servicePills.length - 1 && <span className="text-white/20">•</span>}
+            </span>
+          ))}
         </div>
 
         {/* CTA row */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
-            href={`tel:${PHONE}`}
+            href={`tel:${SITE.phone}`}
             className="flex items-center justify-center gap-2.5 rounded bg-white px-8 py-4 text-sm font-bold uppercase tracking-widest text-neutral-950 transition-colors hover:bg-neutral-100 sm:justify-start"
           >
             <PhoneIcon />
@@ -70,7 +71,7 @@ export default function Hero() {
           </a>
 
           <a
-            href={`https://wa.me/${WHATSAPP}`}
+            href={`https://wa.me/${SITE.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2.5 rounded bg-[#25D366] px-8 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#20c45a] sm:justify-start"

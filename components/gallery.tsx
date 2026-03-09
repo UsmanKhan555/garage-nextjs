@@ -1,13 +1,5 @@
 import Image from 'next/image'
-
-const IMAGES = [
-  { src: '/images/pexels-cottonbro-4480466.jpg', alt: 'Garage work 1' },
-  { src: '/images/pexels-cottonbro-4480505.jpg', alt: 'Garage work 2' },
-  { src: '/images/pexels-cottonbro-4481940.jpg', alt: 'Garage work 3' },
-  { src: '/images/pexels-cottonbro-4489704.jpg', alt: 'Garage work 4' },
-  { src: '/images/pexels-cottonbro-4489707.jpg', alt: 'Garage work 5' },
-  { src: '/images/pexels-cottonbro-4489716.jpg', alt: 'Garage work 6' },
-]
+import { SITE } from '@/lib/config'
 
 export default function Gallery() {
   return (
@@ -26,7 +18,7 @@ export default function Gallery() {
 
         {/* Grid */}
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {IMAGES.map((image) => (
+          {SITE.images.gallery.map((image) => (
             <div key={image.src} className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
               <Image
                 src={image.src}

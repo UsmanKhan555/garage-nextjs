@@ -1,13 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-
-// ── Update with your real info ──────────────────────────────────────────────
-const PHONE = '+1234567890'
-const WHATSAPP = '1234567890'
-// Google Maps: Go to maps.google.com → Share → Embed a map → copy the src URL
-const MAPS_EMBED_SRC = ''
-// ───────────────────────────────────────────────────────────────────────────
+import { SITE } from '@/lib/config'
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
@@ -40,19 +34,19 @@ export default function ContactSection() {
             <div className="space-y-7">
 
               {/* Phone */}
-              <a href={`tel:${PHONE}`} className="flex items-center gap-4 group">
+              <a href={`tel:${SITE.phone}`} className="flex items-center gap-4 group">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-800 text-neutral-500 transition-colors group-hover:border-white group-hover:text-white">
                   <PhoneIcon />
                 </div>
                 <div>
                   <p className="mb-0.5 text-[10px] font-medium uppercase tracking-widest text-neutral-600">Phone</p>
-                  <p className="text-sm font-medium text-white">{PHONE}</p>
+                  <p className="text-sm font-medium text-white">{SITE.phone}</p>
                 </div>
               </a>
 
               {/* WhatsApp */}
               <a
-                href={`https://wa.me/${WHATSAPP}`}
+                href={`https://wa.me/${SITE.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 group"
@@ -67,33 +61,43 @@ export default function ContactSection() {
               </a>
 
               {/* Location */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-800 text-neutral-500">
                   <LocationIcon />
                 </div>
                 <div>
                   <p className="mb-0.5 text-[10px] font-medium uppercase tracking-widest text-neutral-600">Location</p>
-                  <p className="text-sm font-medium text-white">123 Main Street, Your City</p>
+                  <p className="text-sm font-medium text-white">{SITE.address}</p>
                 </div>
               </div>
 
               {/* Hours */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-800 text-neutral-500">
                   <ClockIcon />
                 </div>
                 <div>
                   <p className="mb-0.5 text-[10px] font-medium uppercase tracking-widest text-neutral-600">Hours</p>
-                  <p className="text-sm font-medium text-white">Mon – Sat &nbsp; 8:00 AM – 7:00 PM</p>
+                  {Array.isArray(SITE.hours) ? (
+                    <div className="space-y-0.5">
+                      {SITE.hours.map((line, i) => (
+                        <p key={i} className={`text-sm font-medium ${i === 0 ? 'text-white' : 'text-neutral-400'}`}>
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-sm font-medium text-white">{SITE.hours}</p>
+                  )}
                 </div>
               </div>
             </div>
 
             {/* Google Maps embed */}
             <div className="aspect-video w-full overflow-hidden rounded bg-neutral-900">
-              {MAPS_EMBED_SRC ? (
+              {SITE.mapsEmbedSrc ? (
                 <iframe
-                  src={MAPS_EMBED_SRC}
+                  src={SITE.mapsEmbedSrc}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -101,7 +105,7 @@ export default function ContactSection() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="grayscale"
-                  title="Elite Garage Location"
+                  title={`${SITE.name} Location`}
                 />
               ) : (
                 <div className="flex h-full flex-col items-center justify-center gap-2 text-neutral-700">
@@ -149,7 +153,7 @@ export default function ContactSection() {
                     required
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    placeholder="+1 234 567 890"
+                    placeholder="+971 56 000 0000"
                     className="w-full rounded border border-neutral-800 bg-neutral-900 px-4 py-3 text-sm text-white placeholder-neutral-700 outline-none transition-colors focus:border-neutral-600"
                   />
                 </div>

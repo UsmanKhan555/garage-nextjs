@@ -1,8 +1,10 @@
 import Gallery from '@/components/gallery'
 
+import { SITE } from '@/lib/config'
+
 export const metadata = {
   title: 'Gallery',
-  description: 'See our work — truck repairs, suspension jobs, and heavy vehicle maintenance completed at Elite Garage Dubai.',
+  description: `See our work — engine repairs, brake jobs, and auto maintenance completed at ${SITE.name} in ${SITE.location}.`,
 }
 
 export default function GalleryPage() {

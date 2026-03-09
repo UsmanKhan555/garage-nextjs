@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { SITE } from '@/lib/config'
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -25,7 +26,7 @@ export default function Navbar() {
             href="/"
             className="text-sm font-black uppercase tracking-[0.15em] text-neutral-950"
           >
-            Elite Garage
+            {SITE.name}
           </Link>
 
           {/* Desktop nav */}
