@@ -1,69 +1,43 @@
 import {
-  Gauge,
-  Droplets,
+  Wrench,
   ShieldCheck,
   Settings2,
-  Wrench,
-  Wind,
-  Zap,
-  Flame,
-  ClipboardList,
+  Gauge,
+  Droplets,
 } from 'lucide-react'
 
 export const SITE = {
   // Business identity
-  name: 'Al Mezan Garage',
-  tagline: 'Auto Repair Services in Dubai',
-  city: 'Dubai',
-  country: 'United Arab Emirates',
-  location: 'Deira, Dubai',
+  name: 'Your Business Name',
+  tagline: 'Your Tagline Here',
+  city: 'Your City',
+  country: 'Your Country',
+  location: 'Your City, Country',
 
   // Contact
-  phone: '+971 56 287 1360',
-  whatsapp: '971562871360', // no + sign, with country code
+  phone: '+1 234 567 8900',
+  whatsapp: '12345678900', // no + sign, with country code
   email: '',
-  address: '12B, Alkabaisi, Muraqabat, Deira, Dubai, United Arab Emirates',
+  address: '123 Main Street, Your City',
   hours: [
     'Monday – Saturday',
-    '8:00 AM – 1:00 PM  ·  2:00 PM – 8:00 PM',
-    'Sunday – Closed',
+    '8:00 AM – 7:00 PM',
   ],
-
-  // Images
-  images: {
-    // Hero background — swap path to change the hero photo
-    heroBg: '/images/pexels-artempodrez-8986070.jpg',
-    // Gallery — add/remove entries to match the photos you have
-    gallery: [
-      { src: '/images/Screenshot 2026-03-09 225649.png', alt: 'Al Mezan Garage work 1' },
-      { src: '/images/pexels-artempodrez-8986070.jpg', alt: 'Al Mezan Garage work 2' },
-      { src: '/images/pexels-daniel-andraski-197681005-13065690.jpg', alt: 'Al Mezan Garage work 3' },
-      { src: '/images/pexels-maltelu-2244746.jpg', alt: 'Al Mezan Garage work 4' },
-      { src: '/images/pexels-olly-3807277.jpg', alt: 'Al Mezan Garage work 5' },
-      { src: '/images/pexels-olly-3807386.jpg', alt: 'Al Mezan Garage work 6' },
-    ],
-  },
-
-  // Google Maps embed — Al Mezan Garage, Deira Dubai
-  mapsEmbedSrc: 'https://maps.google.com/maps?q=25.2671577,55.335857&z=17&output=embed',
 
   // Demo notice (shown in footer — remove when site goes live)
   demoNotice: 'Demo website created to showcase how this business could appear online.',
 
   // SEO
   seo: {
-    title: 'Al Mezan Garage Dubai | Auto Repair & Vehicle Services',
-    titleTemplate: '%s | Al Mezan Garage Dubai',
+    title: 'Your Business Name | Auto Repair & Services',
+    titleTemplate: '%s | Your Business Name',
     description:
-      'Professional vehicle diagnostics, repair, and maintenance services in Deira, Dubai. Expert technicians for engine, brakes, suspension, AC, and electrical repairs.',
+      'Professional vehicle repair and maintenance services in Your City. Expert technicians, honest pricing, fast turnaround.',
     keywords: [
-      'auto repair Dubai',
-      'car repair Deira Dubai',
-      'engine diagnostics Dubai',
-      'brake repair Dubai',
-      'suspension repair Dubai',
-      'car maintenance Dubai',
-      'garage Deira Dubai',
+      'auto repair',
+      'car repair',
+      'vehicle maintenance',
+      'garage',
     ],
   },
 
@@ -72,13 +46,13 @@ export const SITE = {
     headlineLines: ['Professional', 'Auto Repair'],
     headlineAccent: 'Services',
     subtext:
-      'Al Mezan Garage provides reliable vehicle diagnostics, repair, and maintenance services in Deira, Dubai. Our experienced technicians ensure your vehicle runs safely and efficiently.',
+      'Your Business Name provides reliable vehicle repair and maintenance services in Your City. Our experienced technicians ensure your vehicle runs safely and efficiently.',
   },
 
-  // About section (used on homepage if applicable and about page)
+  // About section
   about: {
     story: [
-      'Al Mezan Garage is a trusted vehicle repair workshop located in Deira, Dubai. We provide a wide range of automotive services including diagnostics, maintenance, and repair for various vehicle systems.',
+      'Your Business Name is a trusted vehicle repair workshop located in Your City. We provide a wide range of automotive services including diagnostics, maintenance, and repair.',
       'Our goal is to deliver reliable service, honest diagnostics, and quality repairs to keep your vehicle running smoothly.',
     ],
   },
@@ -109,7 +83,7 @@ export const SITE = {
     {
       id: '04',
       icon: Settings2,
-      title: 'Transmission Repair & Service',
+      title: 'Transmission Repair',
       description:
         'Comprehensive transmission maintenance and repair for smooth vehicle performance.',
     },
@@ -120,55 +94,42 @@ export const SITE = {
       description:
         'Repair and replacement of suspension components for a stable and comfortable ride.',
     },
-    {
-      id: '06',
-      icon: Wind,
-      title: 'AC & Heating Service',
-      description:
-        'Diagnosis and repair of vehicle air conditioning and heating systems.',
-    },
-    {
-      id: '07',
-      icon: Zap,
-      title: 'Electrical System Repair',
-      description:
-        'Troubleshooting and repair of vehicle electrical systems and components.',
-    },
-    {
-      id: '08',
-      icon: Flame,
-      title: 'Exhaust System Repair',
-      description:
-        'Inspection and repair of exhaust systems to improve performance and efficiency.',
-    },
-    {
-      id: '09',
-      icon: ClipboardList,
-      title: 'Preventative Maintenance',
-      description:
-        'Routine maintenance services designed to prevent costly repairs and extend vehicle life.',
-    },
   ],
 
   // Service pills shown in hero
-  servicePills: ['Engine Repair', 'Brake Services', 'Suspension', 'AC Service'],
+  servicePills: ['Engine Repair', 'Brake Services', 'Suspension', 'Maintenance'],
 
-  // Testimonials — real Google reviews
+  // Images
+  images: {
+    // Hero background — drop photo in /public/images/ and update path
+    heroBg: '/images/hero.jpg',
+    // Gallery — add/remove entries to match the photos you have
+    gallery: [
+      { src: '/images/photo-1.jpg', alt: 'Workshop photo 1' },
+      { src: '/images/photo-2.jpg', alt: 'Workshop photo 2' },
+      { src: '/images/photo-3.jpg', alt: 'Workshop photo 3' },
+    ],
+  },
+
+  // Google Maps embed — Maps → Share → Embed a map → copy the src URL
+  mapsEmbedSrc: '',
+
+  // Testimonials
   testimonials: [
     {
-      name: 'Mohamed Mossad',
+      name: 'Customer Name',
       role: 'Google Review',
-      body: 'Both of this guy they have good service really thanks.',
+      body: 'Paste real Google review here.',
     },
     {
-      name: 'Shahood Shaz',
+      name: 'Customer Name',
       role: 'Google Review',
-      body: 'Best budget friendly auto service in Dubai.',
+      body: 'Paste real Google review here.',
     },
     {
-      name: 'Heba Sallam',
-      role: 'Local Guide · Google Review',
-      body: 'Good service, looks professional clean place.',
+      name: 'Customer Name',
+      role: 'Google Review',
+      body: 'Paste real Google review here.',
     },
   ],
 }
