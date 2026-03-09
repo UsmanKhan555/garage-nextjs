@@ -1,6 +1,6 @@
-# Garage Demo Template
+# Al Mezan Garage — Demo Site
 
-A cold-outreach sales tool: build a professional demo site for a prospective client, show it to them, close the deal.
+Demo website for Al Mezan Garage, Deira Dubai. Built with Next.js 15, TypeScript, and Tailwind CSS v4.
 
 ---
 
