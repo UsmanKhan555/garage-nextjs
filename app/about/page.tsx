@@ -1,6 +1,8 @@
+import { SITE } from '@/lib/config'
+
 export const metadata = {
   title: 'About Us',
-  description: 'Learn about Elite Garage Dubai — trusted by hundreds of drivers for professional heavy vehicle repair and truck maintenance services.',
+  description: `Learn about ${SITE.name} ${SITE.city} — trusted by hundreds of drivers for professional vehicle repair and auto maintenance services.`,
 }
 
 const VALUES = [
@@ -48,23 +50,12 @@ export default function AboutPage() {
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <div>
               <h2 className="mb-6 text-2xl font-black tracking-tight text-neutral-950 md:text-3xl">
-                Our Story
+                About {SITE.name}
               </h2>
               <div className="space-y-4 text-sm leading-relaxed text-neutral-500">
-                <p>
-                  Elite Garage was founded with a single mission: deliver professional
-                  auto services without the runaround. We believe every driver deserves
-                  honest advice, fair pricing, and repairs done right the first time.
-                </p>
-                <p>
-                  From suspension and leaf spring work to full truck maintenance, our
-                  team handles it all — combining technical expertise with a genuine
-                  commitment to customer satisfaction.
-                </p>
-                <p>
-                  Hundreds of drivers trust us to keep their vehicles safe and
-                  roadworthy. We&apos;d love to earn your trust too.
-                </p>
+                {SITE.about.story.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
               </div>
             </div>
 

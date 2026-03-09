@@ -1,8 +1,10 @@
 import ContactSection from '@/components/contact-section'
 
+import { SITE } from '@/lib/config'
+
 export const metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with Elite Garage Dubai. Call, WhatsApp, or send a message — we respond fast.',
+  description: `Get in touch with ${SITE.name} in ${SITE.location}. Call, WhatsApp, or send a message — we respond fast.`,
 }
 
 export default function ContactPage() {

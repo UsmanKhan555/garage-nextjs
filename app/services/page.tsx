@@ -1,45 +1,10 @@
 import Link from 'next/link'
-import { Wrench, Truck, Settings2, ShieldCheck, CheckCircle } from 'lucide-react'
+import { SITE } from '@/lib/config'
 
 export const metadata = {
   title: 'Our Services',
-  description: 'Suspension repair, leaf spring replacement, heavy truck maintenance, and brake inspection in Dubai. Fast turnaround and honest pricing.',
+  description: `Engine diagnostics, brake repair, suspension service, and more in ${SITE.city}. Fast turnaround and honest pricing at ${SITE.name}.`,
 }
-
-const SERVICES = [
-  {
-    id: '01',
-    icon: Wrench,
-    title: 'Suspension Repair',
-    description:
-      'Full diagnosis and repair of suspension systems including shocks, struts, control arms, and bushings. We restore ride comfort and vehicle handling to factory standards.',
-    details: ['Shock & strut replacement', 'Control arm repair', 'Bushing replacement', 'Wheel alignment check'],
-  },
-  {
-    id: '02',
-    icon: Truck,
-    title: 'Heavy Truck Maintenance',
-    description:
-      'Comprehensive scheduled maintenance for heavy trucks and commercial vehicles. Everything needed to keep your fleet reliable, efficient, and road-legal.',
-    details: ['Oil & filter change', 'Fluid top-ups & inspection', 'Belt & hose check', 'Full vehicle health report'],
-  },
-  {
-    id: '03',
-    icon: Settings2,
-    title: 'Leaf Spring Replacement',
-    description:
-      'Specialist leaf spring services for trucks, SUVs, and heavy-duty vehicles. From single leaf replacement to full pack overhauls — done right.',
-    details: ['Single leaf replacement', 'Full pack replacement', 'U-bolt replacement', 'Spring re-arching'],
-  },
-  {
-    id: '04',
-    icon: ShieldCheck,
-    title: 'Brake Inspection',
-    description:
-      'Thorough inspection and servicing of your entire brake system — from pads and rotors to calipers and brake fluid. Safety is never a compromise.',
-    details: ['Brake pad replacement', 'Rotor resurfacing / replacement', 'Caliper service', 'Brake fluid flush'],
-  },
-]
 
 export default function ServicesPage() {
   return (
@@ -60,8 +25,8 @@ export default function ServicesPage() {
       {/* Service cards */}
       <section className="bg-white py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-6 sm:grid-cols-2">
-            {SERVICES.map(({ id, icon: Icon, title, description, details }) => (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {SITE.services.map(({ id, icon: Icon, title, description }) => (
               <div
                 key={id}
                 className="rounded-xl border border-neutral-200 bg-white p-8 transition-shadow hover:shadow-md"
@@ -78,19 +43,9 @@ export default function ServicesPage() {
                 <h2 className="mb-3 text-xl font-black tracking-tight text-neutral-950">
                   {title}
                 </h2>
-                <p className="mb-6 text-sm leading-relaxed text-neutral-500">
+                <p className="text-sm leading-relaxed text-neutral-500">
                   {description}
                 </p>
-
-                {/* Detail checklist */}
-                <ul className="space-y-2 border-t border-neutral-100 pt-6">
-                  {details.map((d) => (
-                    <li key={d} className="flex items-center gap-3 text-sm text-neutral-600">
-                      <CheckCircle className="h-4 w-4 shrink-0 text-neutral-300" strokeWidth={1.75} />
-                      {d}
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>

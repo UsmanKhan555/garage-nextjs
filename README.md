@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Garage Demo Template
 
-## Getting Started
+A cold-outreach sales tool: build a professional demo site for a prospective client, show it to them, close the deal.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## What this is
+
+Before cold-contacting a business that has no website, customise this template with their info and deploy a live demo. Walk in with a URL already showing their name, phone number, and services. The goal is to sell — not to ship.
+
+---
+
+## How to use it
+
+1. Find a target business (garage, repair shop, etc.) with no website
+2. Edit `lib/config.ts` with their real details (name, phone, city, services)
+3. Run `npm run dev` and verify everything looks right
+4. Deploy (Vercel free tier is instant — `vercel --prod`)
+5. Walk in / call with the live URL
+6. After closing: hand over the repo or continue maintaining it for them
+
+---
+
+## How to rebrand
+
+**Edit only one file: `lib/config.ts`**
+
+```ts
+export const SITE = {
+  name: 'Their Business Name',
+  city: 'Their City',
+  phone: '+1 555 000 1234',
+  whatsapp: '15550001234',   // no +, with country code
+  address: '123 Their Street, Their City',
+  hours: 'Mon – Sat  9:00 AM – 6:00 PM',
+  // ...
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Every component — navbar, footer, hero, contact section, WhatsApp button, SEO metadata — reads from this single config. Nothing else needs touching.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech stack
 
-## Learn More
+| | |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Font | Geist (Google Fonts) |
+| Deployment | Vercel (recommended) |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Run locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm install
+npm run dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
+
+```
+garage/
+├── lib/
+│   └── config.ts          ← EDIT THIS to rebrand
+├── app/
+│   ├── layout.tsx          SEO metadata (reads from config)
+│   ├── page.tsx            Home
+│   ├── about/page.tsx
+│   ├── services/page.tsx
+│   ├── contact/page.tsx
+│   └── gallery/page.tsx
+├── components/
+│   ├── navbar.tsx
+│   ├── hero.tsx
+│   ├── footer.tsx
+│   ├── contact-section.tsx
+│   ├── whatsapp-button.tsx
+│   └── testimonials.tsx
+└── public/images/          Drop in real photos here
+```

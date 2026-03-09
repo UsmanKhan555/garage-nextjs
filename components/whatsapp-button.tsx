@@ -1,9 +1,9 @@
-const WHATSAPP = '1234567890' // no + sign
+import { SITE } from '@/lib/config'
 
 export default function WhatsAppButton() {
   return (
     <a
-      href={`https://wa.me/${WHATSAPP}`}
+      href={`https://wa.me/${SITE.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
